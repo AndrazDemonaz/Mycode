@@ -1,0 +1,339 @@
+<map>
+  <entry>
+    <string>Undeploy</string>
+    <string>// This script executes once when all channels shut down from a redeploy
+// You only have access to the globalMap here to persist data
+return;</string>
+  </entry>
+  <entry>
+    <string>Postprocessor</string>
+    <string>// This script executes once after a message has been processed
+// This script applies across all channels
+// Responses returned from here will be stored as &quot;Postprocessor&quot; in the response map
+// You have access to &quot;response&quot;, if returned from the channel postprocessor
+return;</string>
+  </entry>
+  <entry>
+    <string>Deploy</string>
+    <string>// This script executes once when all channels start up from a redeploy
+// You only have access to the globalMap here to persist data
+globalMap.put(&quot;Driver_Oracle&quot;,&quot;oracle.jdbc.OracleDriver&quot;);
+globalMap.put(&quot;INTERFACE_TEAM&quot;,&quot;aalarconb@clc.cl,mlobosm@clc.cl,legados@clinicalascondes.cl&quot;);
+globalMap.put(&quot;MAIL_MADOC&quot;,&quot;Pcubillos@helpnet.cl,psepulveda@clc.cl&quot;);
+globalMap.put(&quot;URL_HANA&quot;,&quot;jdbc:sap://10.153.200.125:30015/?databaseName=SAPCLC&amp;user=U_MIRTH&amp;password=Clinica15.&quot;); // original nodo hana erp
+// contingencia 176 activa el 4/07/2021
+// globalMap.put(&quot;URL_HANA&quot;,&quot;jdbc:sap://10.153.200.176:30015/?databaseName=SAPCLC&amp;user=U_MIRTH&amp;password=Clinica15.&quot;);
+
+
+globalMap.put(&quot;URL_HANA_CRM&quot;,&quot;jdbc:sap://10.153.200.105:30015/?databaseName=SAPCCP&amp;user=U_MIRTH&amp;password=Clinica15.&quot;);
+globalMap.put(&quot;DriverHana&quot;,&quot;com.sap.db.jdbc.Driver&quot;); 
+
+globalMap.put(&quot;USER_HANA&quot;, &quot;U_MIRTH&quot;);
+globalMap.put(&quot;PASS_HANA&quot;, &quot;Clinica15.&quot;);
+// DES
+//globalMap.put(&quot;URL_BD&quot;,&quot;jdbc:oracle:thin:@10.153.200.35:1630:hisd&quot;); 
+//globalMap.put(&quot;USER_HL7ENGINE&quot;, &quot;hl7engine&quot;);
+//globalMap.put(&quot;PASS_HL7ENGINE&quot;, &quot;hl7engine&quot;);
+//globalMap.put(&quot;URL_BD_CERNER&quot;,&quot;jdbc:oracle:thin:@10.153.200.33:1521:build1&quot;); 
+//globalMap.put(&quot;IP_CERNER&quot;,&quot;10.153.200.33&quot;);dsd
+//globalMap.put(&quot;AMBIENTE&quot;,&quot;DES&quot;);
+//globalMap.put(&quot;IP_PI&quot;,&quot;10.153.200.139&quot;);
+//globalMap.put(&quot;IP_RIS&quot;,&quot;128.1.21.117&quot;);
+
+globalMap.put(&quot;FTP_SAP&quot;,&quot;10.153.200.130&quot;); 
+globalMap.put(&quot;USR_FTP_SAP&quot;,&quot;ftpmeta4&quot;); 
+globalMap.put(&quot;PASS_FTP_SAP&quot;,&quot;meta4clc15&quot;); 
+
+// SAP
+//globalMap.put(&quot;URL_BD&quot;,&quot;jdbc:oracle:thin:@10.153.200.68:1620:HISC&quot;); 
+
+
+//Ambos Nodos
+//globalMap.put(&quot;URL_BD&quot;,&quot;jdbc:oracle:thin:@(DESCRIPTION = (enable=broken) (LOAD_BALANCE = TRUE) (ADDRESS = (PROTOCOL = TCP)(HOST = 10.153.200.65)(PORT = 1521)) (ADDRESS = (PROTOCOL = TCP)(HOST = 10.153.200.66)(PORT = 1521)) (CONNECT_DATA = (SERVICE_NAME = HISP) (SERVER = DEDICATED) ) )&quot;);
+//NODO 1
+//globalMap.put(&quot;URL_BD&quot;,&quot;jdbc:oracle:thin:@(DESCRIPTION = (enable=broken) (LOAD_BALANCE = TRUE) (ADDRESS = (PROTOCOL = TCP)(HOST = 10.153.200.65)(PORT = 1521))  (CONNECT_DATA = (SERVICE_NAME = HISP) (SERVER = DEDICATED) ) )&quot;);
+//NODO 2
+//globalMap.put(&quot;URL_BD&quot;,&quot;jdbc:oracle:thin:@(DESCRIPTION = (enable=broken) (LOAD_BALANCE = TRUE) (ADDRESS = (PROTOCOL = TCP)(HOST = 10.153.200.66)(PORT = 1521)) (CONNECT_DATA = (SERVICE_NAME = HISP) (SERVER = DEDICATED) ) )&quot;);
+
+
+//----NUEVOS----27-05-2018
+//Ambos Nodos
+//globalMap.put(&quot;URL_BD&quot;,&quot;jdbc:oracle:thin:@(DESCRIPTION = (enable=broken) (LOAD_BALANCE = TRUE) (ADDRESS = (PROTOCOL = TCP)(HOST = 10.153.200.22)(PORT = 1521)) (ADDRESS = (PROTOCOL = TCP)(HOST = 10.153.200.23)(PORT = 1521)) (CONNECT_DATA = (SERVICE_NAME = HISP) (SERVER = DEDICATED) ) )&quot;);
+//NODO 2
+//globalMap.put(&quot;URL_BD&quot;,&quot;jdbc:oracle:thin:@(DESCRIPTION = (enable=broken) (LOAD_BALANCE = TRUE) (ADDRESS = (PROTOCOL = TCP)(HOST = 10.153.200.22)(PORT = 1521)) (CONNECT_DATA = (SERVICE_NAME = HISP) (SERVER = DEDICATED) ) )&quot;); 
+//NODO 1
+//globalMap.put(&quot;URL_BD&quot;,&quot;jdbc:oracle:thin:@(DESCRIPTION = (enable=broken) (LOAD_BALANCE = TRUE) (ADDRESS = (PROTOCOL = TCP)(HOST = 10.153.200.23)(PORT = 1521)) (CONNECT_DATA = (SERVICE_NAME = HISP) (SERVER = DEDICATED) ) )&quot;); 
+
+
+// cambio de maquinas HISP 27-05-2018 Actualizado el 29-06-2018
+//Ambos Nodos
+//globalMap.put(&quot;URL_BD&quot;,&quot;jdbc:oracle:thin:@(DESCRIPTION = (enable=broken) (LOAD_BALANCE = TRUE) (ADDRESS = (PROTOCOL = TCP)(HOST = 10.153.200.22)(PORT = 1521)) (ADDRESS = (PROTOCOL = TCP)(HOST = 10.153.200.23)(PORT = 1521)) (CONNECT_DATA = (SERVICE_NAME = HISP) (SERVER = DEDICATED) ) )&quot;);
+//A partir del 22/05/2022 se cambia a Entel virtualizada
+globalMap.put(&quot;URL_BD&quot;,&quot;jdbc:oracle:thin:@(DESCRIPTION = (enable=broken) (LOAD_BALANCE = TRUE) (ADDRESS = (PROTOCOL = TCP)(HOST = 10.153.200.240)(PORT = 1521)) (ADDRESS = (PROTOCOL = TCP)(HOST = 10.153.200.176)(PORT = 1521)) (CONNECT_DATA = (SERVICE_NAME = HISP) (SERVER = DEDICATED) ) )&quot;);
+//NODO 1
+//globalMap.put(&quot;URL_BD&quot;,&quot;jdbc:oracle:thin:@(DESCRIPTION = (enable=broken) (LOAD_BALANCE = TRUE) (ADDRESS = (PROTOCOL = TCP)(HOST = 10.153.200.22)(PORT = 1521)) (CONNECT_DATA = (SERVICE_NAME = HISP) (INSTANCE_NAME = HISP1) ) )&quot;); //apunta a nodo 1
+//NODO 2
+//globalMap.put(&quot;URL_BD&quot;,&quot;jdbc:oracle:thin:@(DESCRIPTION = (enable=broken) (LOAD_BALANCE = TRUE) (ADDRESS = (PROTOCOL = TCP)(HOST = 10.153.200.23)(PORT = 1521)) (CONNECT_DATA = (SERVICE_NAME = HISP) (INSTANCE_NAME = HISP2) ) )&quot;); //apunta a nodo 2
+
+
+
+//CONTINGENCIA 18-12-2017
+//globalMap.put(&quot;URL_BD&quot;,&quot;jdbc:oracle:thin:@(DESCRIPTION = (enable=broken) (LOAD_BALANCE = TRUE) (ADDRESS = (PROTOCOL = TCP)(HOST = 10.153.200.68)(PORT = 1521))  (CONNECT_DATA = (SERVICE_NAME = HISP) (SERVER = DEDICATED) ) )&quot;);
+
+
+//Variables para Contencion por Baja de Sistema SAP
+//globalMap.put(&quot;ESTADO_MSJE&quot;,&quot;1&quot;);//FASE 1
+globalMap.put(&quot;ESTADO_MSJE&quot;,&quot;3&quot;);//FASE 2
+globalMap.put(&quot;LEE_ESTADO&quot;,&quot;1&quot;);//FASE 2
+//globalMap.put(&quot;LEE_ESTADO&quot;,&quot;3&quot;);//FASE 3
+
+
+globalMap.put(&quot;URL_BD_HSAP&quot;,&quot;jdbc:oracle:thin:@10.153.200.36:1620:HISC&quot;); 
+globalMap.put(&quot;URL_BD_HCON&quot;,&quot;jdbc:oracle:thin:@10.153.200.49:1620:HISC&quot;); 
+globalMap.put(&quot;URL_BD_DES&quot;,&quot;jdbc:oracle:thin:@10.153.200.35:1630:HISD&quot;); 
+globalMap.put(&quot;USER_HL7ENGINE&quot;, &quot;usrhl7engine&quot;);
+globalMap.put(&quot;PASS_HL7ENGINE_HCON&quot;, &quot;userhl7hisc&quot;);
+globalMap.put(&quot;PASS_HL7ENGINE&quot;, &quot;userhl7hisp&quot;);
+globalMap.put(&quot;HL7ENGINE_HSAP&quot;, &quot;hl7engine&quot;);
+globalMap.put(&quot;pwdHL7ENGINE_HSAP&quot;, &quot;hl72015&quot;);
+globalMap.put(&quot;HL7ENGINE&quot;, &quot;hl7engine&quot;);
+globalMap.put(&quot;pwdHL7ENGINE&quot;, &quot;hl7cernerclc09&quot;);
+globalMap.put(&quot;URL_BD_ANHTST&quot;,&quot;jdbc:oracle:thin:@10.153.200.35:1640:ANHT&quot;); 
+globalMap.put(&quot;USER_META4&quot;, &quot;CLCMETA4&quot;);
+globalMap.put(&quot;PASS_META4&quot;, &quot;meta4anhtst&quot;);
+//globalMap.put(&quot;URL_BD_CERNER_TRT&quot;,&quot;jdbc:oracle:thin:@10.153.200.43:1521:trt1&quot;); 
+globalMap.put(&quot;IP_CERNER&quot;,&quot;10.153.200.43&quot;); 
+globalMap.put(&quot;IP_CERNER&quot;,&quot;10.153.200.86&quot;);
+globalMap.put(&quot;AMBIENTE&quot;,&quot;SAP_PRD&quot;);
+globalMap.put(&quot;MIRTH_CLC&quot;,&quot;10.153.200.30&quot;);
+
+//Actividad CERNER 18-09-20
+//globalMap.put(&quot;URL_BD_CERNER&quot;,&quot;jdbc:oracle:thin:@(DESCRIPTION=(ENABLE=BROKEN)(ADDRESS = (PROTOCOL = TCP)(HOST = 149.45.134.205)(PORT = 1521))(CONNECT_DATA=(SERVER = DEDICATED)(SERVICE_NAME= p1989.world)))&quot;);
+globalMap.put(&quot;URL_BD_CERNER&quot;,&quot;jdbc:oracle:thin:@(DESCRIPTION=(ENABLE=BROKEN)(ADDRESS = (PROTOCOL = TCP)(HOST = 149.45.134.205)(PORT = 1521))(CONNECT_DATA=(SERVER = DEDICATED)(SERVICE_NAME= sp1989.world)))&quot;);
+
+//IP BD CERNER ANTIGUA
+//globalMap.put(&quot;URL_BD_CERNER&quot;,&quot;jdbc:oracle:thin:@(DESCRIPTION = (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(HOST = 10.153.200.155)(PORT = 1521)) )(CONNECT_DATA= (SERVICE_NAME = prod.world)))&quot;);
+
+
+
+//QAS
+//globalMap.put(&quot;USER_CLCWEB&quot;,&quot;USRCLCWEB&quot;);
+//globalMap.put(&quot;PASS_CLCWEB&quot;,&quot;usrclcwebhis2012&quot;);
+//PRD
+globalMap.put(&quot;USER_CLCWEB&quot;,&quot;USRCLCWEB&quot;);
+globalMap.put(&quot;PASS_CLCWEB&quot;,&quot;usrclcwebhis2012&quot;);
+
+//CONFIGURACION SAP
+globalMap.put(&quot;IP_PI_DEV&quot;,&quot;10.153.200.139&quot;);
+globalMap.put(&quot;IP_PI_QAS&quot;,&quot;10.153.200.144&quot;);
+globalMap.put(&quot;IP_PI_XX&quot;,&quot;10.153.200.158&quot;);
+globalMap.put(&quot;IP_PI&quot;,&quot;10.153.200.244&quot;);
+//http://10.153.200.244/
+//http://sappiqas.dclc.cl/
+globalMap.put(&quot;URL_WS_DEV&quot;,&quot;http://sappidev.dclc.cl:50000&quot;);
+globalMap.put(&quot;URL_WS_QAS&quot;,&quot;http://sappiqas.dclc.cl:50000&quot;);
+globalMap.put(&quot;URL_WS&quot;,&quot;http://sappiprod1.dclc.cl:50200&quot;);
+globalMap.put(&quot;USER_WS_SAP&quot;,&quot;interfaz&quot;);
+globalMap.put(&quot;PASS_WS_SAP&quot;,&quot;1q2w3e4r&quot;);
+
+globalMap.put(&quot;USER_WS_BP&quot;,&quot;interfaz_bp&quot;);
+globalMap.put(&quot;PASS_WS_BP&quot;,&quot;1q2w3e4r&quot;);
+globalMap.put(&quot;USER_WS_MYC&quot;,&quot;interfaz_myc&quot;);
+globalMap.put(&quot;PASS_WS_MYC&quot;,&quot;1q2w3e4r&quot;);
+globalMap.put(&quot;USER_WS_A28&quot;,&quot;interfaz_a28&quot;);
+globalMap.put(&quot;PASS_WS_A28&quot;,&quot;1q2w3e4r&quot;);
+globalMap.put(&quot;USER_WS_CC&quot;,&quot;interfaz_cc&quot;);
+globalMap.put(&quot;PASS_WS_CC&quot;,&quot;1q2w3e4r&quot;);
+globalMap.put(&quot;USER_WS_CRM&quot;,&quot;interfaz_crm&quot;);
+globalMap.put(&quot;PASS_WS_CRM&quot;,&quot;1q2w3e4r&quot;);
+globalMap.put(&quot;USER_WS_SEE&quot;,&quot;interfaz_see&quot;);
+globalMap.put(&quot;PASS_WS_SEE&quot;,&quot;1q2w3e4r&quot;);
+globalMap.put(&quot;USER_WS_LIQ&quot;,&quot;interfaz_liq&quot;);
+globalMap.put(&quot;PASS_WS_LIQ&quot;,&quot;1q2w3e4r&quot;);
+globalMap.put(&quot;USER_WS_CAJ&quot;,&quot;interfaz_caj&quot;);
+globalMap.put(&quot;PASS_WS_CAJ&quot;,&quot;1q2w3e4r&quot;);
+globalMap.put(&quot;USER_WS_SIS&quot;,&quot;interfaz_sis&quot;);
+globalMap.put(&quot;PASS_WS_SIS&quot;,&quot;1q2w3e4r&quot;);
+
+globalMap.put(&quot;USER_WS_BC&quot;,&quot;interfaz_bc&quot;);
+globalMap.put(&quot;PASS_WS_BC&quot;,&quot;1q2w3e4r&quot;);
+globalMap.put(&quot;USER_WS_INTERFAZ&quot;,&quot;interfaz_ws&quot;);
+globalMap.put(&quot;PASS_WS_INTERFAZ&quot;,&quot;1q2w3e4r&quot;);
+
+globalMap.put(&quot;PASS_WS_SAP_HSAP&quot;,&quot;123456&quot;);
+globalMap.put(&quot;USER_WS_SAP_PROD&quot;,&quot;INT_MIRTH&quot;);
+globalMap.put(&quot;PASS_WS_SAP_PROD&quot;,&quot;clcsap2015&quot;);
+globalMap.put(&quot;IP_RIS&quot;,&quot;10.153.200.123&quot;);
+globalMap.put(&quot;USER_ADMAGENDA&quot;,&quot;usrhl7engine&quot;);
+globalMap.put(&quot;PASS_ADMAGENDA&quot;,&quot;userhl7hisp&quot;);//globalMap.put(&quot;PASS_ADMAGENDA&quot;,&quot;userhl7hisc&quot;);
+globalMap.put(&quot;USER_WSMIRTH&quot;,&quot;INT_MIRTH&quot;);
+globalMap.put(&quot;PASS_WSMIRTH&quot;,&quot;clcsap2015&quot;);
+
+//Actividad CERNER 18-09-20
+globalMap.put(&quot;USER_CERNER&quot;,&quot;v500_read&quot;);
+globalMap.put(&quot;PASS_CERNER&quot;,&quot;V500_read&quot;);
+
+globalMap.put(&quot;USER_SISHONMED &quot;,&quot;SISHONMED&quot;);
+globalMap.put(&quot;PASS_SISHONMEDSAP&quot;,&quot;usersishm&quot;);
+globalMap.put(&quot;USER_SISHONMEDSAP&quot;,&quot;usersishm&quot;);
+globalMap.put(&quot;PASS_SISHONMED&quot;,&quot;sis_honsh2015&quot;);
+globalMap.put(&quot;USER_PROD_CLC&quot;,&quot;hl7engine&quot;);
+globalMap.put(&quot;PASS_PROD_CLC&quot;,&quot;hl7cernerclc09&quot;);
+//globalMap.put(&quot;URL_BD_ANHPRD&quot;,&quot;jdbc:oracle:thin:@10.153.200.67:1521:ANHP&quot;); 
+//globalMap.put(&quot;URL_BD_ANHPRD&quot;,&quot;jdbc:oracle:thin:@10.153.200.168:1521:ANHP&quot;); 
+//A partir del 19/05/2022 se cambia a Entel virtualizada
+globalMap.put(&quot;URL_BD_ANHPRD&quot;,&quot;jdbc:oracle:thin:@10.153.200.160:1521:ANHP&quot;); 
+
+globalMap.put(&quot;USER_META4SAP&quot;, &quot;CLCMETA4&quot;);
+globalMap.put(&quot;PASS_META4SAP&quot;, &quot;meta5009anhp&quot;);
+
+//globalMap.put(&quot;WS_HM_SONDA&quot;, &quot;http://128.1.21.140:8080/sisaludws/wsdl&quot;);//TST
+globalMap.put(&quot;WS_HM_SOND_QASA&quot;, &quot;http://128.1.21.140:8080/sisaludwsdes/wsdl&quot;);
+globalMap.put(&quot;WS_HM_SONDA&quot;, &quot;http://128.1.21.143:8080/sisaludws/wsdl&quot;);
+//http://128.1.21.140:8080/sisaludwsdes/
+globalMap.put(&quot;USER_HEMATOS&quot;, &quot;hematos&quot;);
+globalMap.put(&quot;PASS_HEMATOS&quot;, &quot;hematos07&quot;);
+
+
+globalMap.put(&quot;URL_BD_MIRTH&quot;,&quot;jdbc:postgresql://localhost:5432/mirthdb&quot;); 
+globalMap.put(&quot;USER_BD_MIRTH&quot;, &quot;mirthclc&quot;);
+globalMap.put(&quot;PASS_BD_MIRTH&quot;, &quot;mirthclc&quot;);
+//globalMap.put(&quot;USER_BD_MIRTH&quot;, &quot;mirthdb&quot;);
+//globalMap.put(&quot;PASS_BD_MIRTH&quot;, &quot;mirthclc&quot;);
+
+// TST
+//globalMap.put(&quot;AMBIENTE&quot;,&quot;TST&quot;);
+//globalMap.put(&quot;URL_BD&quot;,&quot;jdbc:oracle:thin:@128.1.21.192:1610:hist&quot;); 
+//globalMap.put(&quot;USER_HL7ENGINE&quot;, &quot;usrhl7engine&quot;);
+//globalMap.put(&quot;PASS_HL7ENGINE&quot;, &quot;usrhl7hist&quot;);
+//globalMap.put(&quot;URL_BD_MIRTH&quot;,&quot;jdbc:postgresql://localhost:5432/mirthdb&quot;); 
+//globalMap.put(&quot;USER_BD_MIRTH&quot;, &quot;mirthclc&quot;);
+//globalMap.put(&quot;PASS_BD_MIRTH&quot;, &quot;mirthclc&quot;);
+//globalMap.put(&quot;URL_BD_CERNER&quot;,&quot;jdbc:oracle:thin:@10.153.200.92:1521:cert1&quot;); 
+//globalMap.put(&quot;URL_BD_RIS&quot;,&quot;jdbc:oracle:thin:@128.1.21.117:1521:kodakris&quot;);
+//globalMap.put(&quot;USER_BD_RIS&quot;, &quot;prod20&quot;);
+//globalMap.put(&quot;PASS_BD_RIS&quot;, &quot;ris&quot;);
+//globalMap.put(&quot;WS_HM_SONDA&quot;, &quot;http://128.1.21.140:8080/sisaludws/wsdl&quot;);
+//globalMap.put(&quot;USER_AGENDA&quot;,&quot;admagenda&quot;);
+//globalMap.put(&quot;PASS_AGENDA&quot;,&quot;agetst&quot;);
+//globalMap.put(&quot;IP_MIRTH&quot;,&quot;128.1.21.76&quot;);
+//globalMap.put(&quot;IP_CERNER&quot;,&quot;10.153.200.92&quot;);
+//globalMap.put(&quot;WS_PREVICANCER&quot;,&quot;http://vmintraweb/tst/intranet/aplicaciones/ws/ws_previcancer&quot;);
+//globalMap.put(&quot;IP_TAKYON&quot;,&quot;172.4.253.91&quot;);
+//globalMap.put(&quot;USER_BD_TAKYON&quot;,&quot;TAKYONUSER&quot;);
+//globalMap.put(&quot;PASS_BD_TAKYON&quot;,&quot;junio2010&quot;);
+//globalMap.put(&quot;IP_RIS&quot;,&quot;128.1.21.14&quot;);
+//globalMap.put(&quot;WS_PREGO&quot;,&quot;http://www.pregost.cl/WS_CLC_PREGO_TEST&quot;);
+//globalMap.put(&quot;USER_PREGO&quot;, &quot;Prueba&quot;);
+//globalMap.put(&quot;PASS_PREGO&quot;, &quot;Prueba&quot;);
+//globalMap.put(&quot;USER_DB_PREGO&quot;,&quot;USR_PREGO&quot;);			
+//globalMap.put(&quot;PASS_DB_PREGO&quot;,&quot;USRPREGOHIST2012&quot;);	
+//globalMap.put(&quot;USER_DB_SDD&quot;,&quot;usrsdd&quot;);			// ${USER_DB_SDD}
+//globalMap.put(&quot;PASS_DB_SDD&quot;,&quot;usr10tstsdd&quot;);		// ${PASS_DB_SDD}
+//globalMap.put(&quot;URL_SDD&quot;,&quot;http://vmintraweb.dclc.cl/tst/intranet/aplicaciones/sdd/visor.aspx&quot;);
+//globalMap.put(&quot;FOLDER_POCMAR&quot;,&quot;/folders/network/pocmartst&quot;);
+//globalMap.put(&quot;URL_BD_HEMATOS&quot;,&quot;jdbc:oracle:thin:@(DESCRIPTION = (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(HOST = 128.1.21.192)(PORT = 1610)))(CONNECT_DATA = (SERVICE_NAME = HIST)))&quot;); 
+//globalMap.put(&quot;USER_HEMATOS&quot;, &quot;hematos&quot;);
+//globalMap.put(&quot;PASS_HEMATOS&quot;, &quot;histhema_0701&quot;);
+//globalMap.put(&quot;PASS_LIS&quot;,&quot;orden7&quot;);
+//globalMap.put(&quot;URL_BD_CLOUD_SONDA&quot;,&quot;jdbc:oracle:thin:@128.1.21.192:1610:hist&quot;);
+
+// PROD
+//globalMap.put(&quot;AMBIENTE&quot;,&quot;PROD&quot;);
+//globalMap.put(&quot;URL_BD&quot;,&quot;jdbc:oracle:thin:@(DESCRIPTION = (LOAD_BALANCE=on) (FAILOVER=on) (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(HOST = 128.1.21.172)(PORT = 1521)) (ADDRESS = (PROTOCOL = TCP)(HOST = 128.1.21.173)(PORT = 1521))(ADDRESS = (PROTOCOL = TCP)(HOST = 128.1.21.171)(PORT = 1521)) (ADDRESS = (PROTOCOL = TCP)(HOST = 128.1.21.192)(PORT = 1521))) (CONNECT_DATA= (SERVICE_NAME = HISP)))&quot;);
+//globalMap.put(&quot;URL_BD&quot;,&quot;jdbc:oracle:thin:@(DESCRIPTION = (LOAD_BALANCE=on) (FAILOVER=on) (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(HOST = 128.1.21.172)(PORT = 1521)) (ADDRESS = (PROTOCOL = TCP)(HOST = 128.1.21.171)(PORT = 1521)) (ADDRESS = (PROTOCOL = TCP)(HOST = 128.1.21.192)(PORT = 1521))) (CONNECT_DATA= (SERVICE_NAME = HISP)))&quot;); //sin nodo 3
+//globalMap.put(&quot;URL_BD&quot;,&quot;jdbc:oracle:thin:@(DESCRIPTION = (LOAD_BALANCE=on) (FAILOVER=on) (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(HOST = 128.1.21.173)(PORT = 1521)) (ADDRESS = (PROTOCOL = TCP)(HOST = 128.1.21.171)(PORT = 1521)) (ADDRESS = (PROTOCOL = TCP)(HOST = 128.1.21.192)(PORT = 1521))) (CONNECT_DATA= (SERVICE_NAME = HISP)))&quot;); // sin nodo 2
+//globalMap.put(&quot;URL_BD&quot;,&quot;jdbc:oracle:thin:@(DESCRIPTION = (LOAD_BALANCE=on) (FAILOVER=on) (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(HOST = 128.1.21.173)(PORT = 1521))(ADDRESS = (PROTOCOL = TCP)(HOST = 128.1.21.192)(PORT = 1521))) (CONNECT_DATA= (SERVICE_NAME = HISP)))&quot;);//sin 1 y 2
+// ANTIGUO STRING DE CONEXION // globalMap.put(&quot;URL_BD&quot;,&quot;jdbc:oracle:thin:@(DESCRIPTION = (LOAD_BALANCE=on) (FAILOVER=on) (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(HOST = 128.1.21.171)(PORT = 1521))(ADDRESS = (PROTOCOL = TCP)(HOST = 128.1.21.192)(PORT = 1521))) (CONNECT_DATA= (SERVICE_NAME = HISP)))&quot;);//SOLO NODO 1
+//globalMap.put(&quot;URL_BD&quot;,&quot;jdbc:oracle:thin:@(DESCRIPTION = (enable=broken) (LOAD_BALANCE = TRUE) (ADDRESS = (PROTOCOL = TCP)(HOST = 10.153.200.65)(PORT = 1521)) (ADDRESS = (PROTOCOL = TCP)(HOST = 10.153.200.66)(PORT = 1521)) (CONNECT_DATA = (SERVICE_NAME = HISP) (SERVER = DEDICATED) ) )&quot;);
+//globalMap.put(&quot;URL_BD&quot;,&quot;jdbc:oracle:thin:@(DESCRIPTION = (enable=broken) (LOAD_BALANCE = TRUE) (ADDRESS = (PROTOCOL = TCP)(HOST = 10.153.200.66)(PORT = 1521)) (CONNECT_DATA = (SERVICE_NAME = HISP) (SERVER = DEDICATED) ) )&quot;); //sin nodo 1 new
+//globalMap.put(&quot;URL_BD&quot;,&quot;jdbc:oracle:thin:@(DESCRIPTION = (enable=broken) (LOAD_BALANCE = TRUE) (ADDRESS = (PROTOCOL = TCP)(HOST = 10.153.200.65)(PORT = 1521)) (CONNECT_DATA = (SERVICE_NAME = HISP) (SERVER = DEDICATED) ) )&quot;); //sin nodo 2 new
+//globalMap.put(&quot;USER_HL7ENGINE&quot;, &quot;usrhl7engine&quot;);
+//globalMap.put(&quot;PASS_HL7ENGINE&quot;, &quot;userhl7hisp&quot;);
+//globalMap.put(&quot;USER_NEURO&quot;, &quot;cadwell&quot;);
+//globalMap.put(&quot;PASS_NEURO&quot;, &quot;usrcadwellhisp1&quot;);
+//globalMap.put(&quot;URL_BD_MIRTH&quot;,&quot;jdbc:postgresql://localhost:5432/mirthdb&quot;); 
+//globalMap.put(&quot;USER_BD_MIRTH&quot;, &quot;mirthdb&quot;);
+//globalMap.put(&quot;PASS_BD_MIRTH&quot;, &quot;mirthclc&quot;);
+//globalMap.put(&quot;URL_BD_CERNER&quot;,&quot;jdbc:oracle:thin:@(DESCRIPTION = (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(HOST = 10.153.200.83)(PORT = 1521)) )(CONNECT_DATA= (SERVICE_NAME = prod.world)))&quot;); 
+//globalMap.put(&quot;URL_BD_CERNER&quot;,&quot;jdbc:oracle:thin:@(DESCRIPTION = (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(HOST = 10.153.200.155)(PORT = 1521)) )(CONNECT_DATA= (SERVICE_NAME = prod.world)))&quot;); 
+//globalMap.put(&quot;URL_BD_RIS&quot;,&quot;jdbc:oracle:thin:@128.1.21.151:1521:kodakris&quot;);
+//globalMap.put(&quot;USER_BD_RIS&quot;, &quot;prod10&quot;);
+//globalMap.put(&quot;PASS_BD_RIS&quot;, &quot;ris&quot;);
+//globalMap.put(&quot;WS_HM_SONDA&quot;, &quot;http://128.1.21.143:8080/sisaludws/wsdl&quot;);
+//globalMap.put(&quot;USER_AGENDA&quot;,&quot;admagenda&quot;);
+//globalMap.put(&quot;PASS_AGENDA&quot;,&quot;admage06&quot;);
+//globalMap.put(&quot;IP_MIRTH&quot;,&quot;10.153.200.30&quot;);
+//globalMap.put(&quot;IP_CERNER&quot;,&quot;10.153.200.86&quot;);
+//globalMap.put(&quot;WS_PREVICANCER&quot;,&quot;http://vmintranet/aplicaciones/ws/ws_previcancer&quot;);
+//globalMap.put(&quot;IP_TAKYON&quot;,&quot;128.1.21.121&quot;);
+//globalMap.put(&quot;USER_BD_TAKYON&quot;,&quot;TAKYONUSER&quot;);
+//globalMap.put(&quot;PASS_BD_TAKYON&quot;,&quot;iuyrjd089dhf74&quot;);
+//globalMap.put(&quot;IP_RIS&quot;,&quot;128.1.21.14&quot;);
+//globalMap.put(&quot;WS_PREGO&quot;,&quot;http://www.pregost.cl/ws_prego_clc&quot;);
+//globalMap.put(&quot;USER_PREGO&quot;, &quot;Ws_clc&quot;);
+//globalMap.put(&quot;PASS_PREGO&quot;, &quot;Ws_clc&quot;);
+//globalMap.put(&quot;USER_DB_PREGO&quot;,&quot;USR_PREGO&quot;);
+//globalMap.put(&quot;PASS_DB_PREGO&quot;,&quot;pregousrclinica2013&quot;);
+//globalMap.put(&quot;CALLCENTER_EMPRESA&quot;,&quot;Clinica Las Condes&quot;);
+//globalMap.put(&quot;CALLCENTER_USER&quot;,&quot;Informatica_CLC&quot;);
+//globalMap.put(&quot;CALLCENTER_PW&quot;,&quot;CLC.2014&quot;);
+//globalMap.put(&quot;USER_DB_SDD&quot;,&quot;usrsdd&quot;);
+//globalMap.put(&quot;PASS_DB_SDD&quot;,&quot;usrsddhisp&quot;);
+//globalMap.put(&quot;URL_SDD&quot;,&quot;http://ws.intranetclc.cl/aplicaciones/sdd/visor.aspx&quot;);
+//globalMap.put(&quot;FOLDER_POCMAR&quot;,&quot;/folders/network/pocmarprod1&quot;);
+// ANTIGUO STRING DE CONEXION // globalMap.put(&quot;URL_BD_HEMATOS&quot;,&quot;jdbc:oracle:thin:@(DESCRIPTION = (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(HOST = 128.1.21.172)(PORT = 1521)) (ADDRESS = (PROTOCOL = TCP)(HOST = 128.1.21.173)(PORT = 1521))(ADDRESS = (PROTOCOL = TCP)(HOST = 128.1.21.171)(PORT = 1521)) (ADDRESS = (PROTOCOL = TCP)(HOST = 128.1.21.192)(PORT = 1521))) (CONNECT_DATA= (SERVICE_NAME = HISP)))&quot;); 
+//globalMap.put(&quot;URL_BD_HEMATOS&quot;,&quot;jdbc:oracle:thin:@(DESCRIPTION = (enable=broken) (LOAD_BALANCE = TRUE) (ADDRESS = (PROTOCOL = TCP)(HOST = 10.153.200.65)(PORT = 1521)) (ADDRESS = (PROTOCOL = TCP)(HOST = 10.153.200.66)(PORT = 1521)) (CONNECT_DATA = (SERVICE_NAME = HISP) (SERVER = DEDICATED) ) )&quot;);
+//globalMap.put(&quot;USER_HEMATOS&quot;, &quot;hematos&quot;);
+//globalMap.put(&quot;PASS_HEMATOS&quot;, &quot;hematos07&quot;);
+//globalMap.put(&quot;USER_LIS&quot;,&quot;clc_orden1&quot;);
+//globalMap.put(&quot;PASS_LIS&quot;,&quot;orden1&quot;);
+//globalMap.put(&quot;URL_BD_CLOUD_SONDA&quot;,&quot;jdbc:oracle:thin:@10.153.198.51:1521:orcl&quot;);
+//globalMap.put(&quot;USER_RHSYSTEM&quot;, &quot;USR_RHS&quot;);
+//globalMap.put(&quot;PASS_RHSYSTEM&quot;, &quot;hispusrrhs09&quot;);
+// ANTIGUO STRING DE CONEXION // globalMap.put(&quot;NODO1_HISPRD&quot;,&quot;128.1.21.171&quot;);
+//globalMap.put(&quot;NODO1_HISPRD&quot;,&quot;10.153.200.65&quot;);
+// ANTIGUO STRING DE CONEXION // globalMap.put(&quot;URL_DB_HISC&quot;,&quot;jdbc:oracle:thin:@128.1.21.192:1620:hisc&quot;);
+//globalMap.put(&quot;URL_DB_HISC&quot;,&quot;jdbc:oracle:thin:@(DESCRIPTION = (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(HOST = 10.153.200.68)(PORT = 1620)) ) (CONNECT_DATA = (SERVICE_NAME = HISC) ) )&quot;);
+//globalMap.put(&quot;INTERFACE_PSC&quot;,&quot;psepulveda@clc.cl,vchacon@clc.cl&quot;);
+//globalMap.put(&quot;USER_SICARE&quot;, &quot;USREXPSICAPP&quot;);
+//globalMap.put(&quot;PASS_SICARE&quot;, &quot;usrexplotsicare2014&quot;);
+
+// uso de las variables globales:
+
+// DATABASE READER/WRITER :                     JavaScript : $(&apos;Driver_Oracle&apos;)
+// DATABASE READER/WRITER : ${URL_BD}           JavaScript : $(&apos;URL_BD&apos;)
+// DATABASE READER/WRITER : ${USER_HL7ENGINE}   JavaScript : $(&apos;USER_HL7ENGINE&apos;)
+// DATABASE READER/WRITER : ${PASS_HL7ENGINE}   JavaScript : $(&apos;PASS_HL7ENGINE&apos;)
+// DATABASE READER/WRITER : ${URL_BD_MIRTH}     JavaScript : $(&apos;URL_BD_MIRTH&apos;)
+// DATABASE READER/WRITER : ${USER_BD_MIRTH}    JavaScript : $(&apos;USER_BD_MIRTH&apos;)
+// DATABASE READER/WRITER : ${URL_BD_CERNER}    JavaScript : $(&apos;URL_BD_CERNER&apos;)
+// DATABASE READER/WRITER : ${URL_BD_RIS}       JavaScript : $(&apos;URL_BD_RIS&apos;)
+// DATABASE READER/WRITER : ${USER_BD_RIS}      JavaScript : $(&apos;USER_BD_RIS&apos;)
+// DATABASE READER/WRITER : ${PASS_BD_RIS}      JavaScript : $(&apos;PASS_BD_RIS&apos;)
+
+
+
+// uso de las variables globales:
+
+// DATABASE READER/WRITER :                     JavaScript : $(&apos;Driver_Oracle&apos;)
+// DATABASE READER/WRITER : ${URL_BD}           JavaScript : $(&apos;URL_BD&apos;)
+// DATABASE READER/WRITER : ${USER_HL7ENGINE}   JavaScript : $(&apos;USER_HL7ENGINE&apos;)
+// DATABASE READER/WRITER : ${PASS_HL7ENGINE}   JavaScript : $(&apos;PASS_HL7ENGINE&apos;)
+// DATABASE READER/WRITER : ${URL_BD_MIRTH}     JavaScript : $(&apos;URL_BD_MIRTH&apos;)
+// DATABASE READER/WRITER : ${USER_BD_MIRTH}    JavaScript : $(&apos;USER_BD_MIRTH&apos;)
+// DATABASE READER/WRITER : ${URL_BD_CERNER}    JavaScript : $(&apos;URL_BD_CERNER&apos;)
+// DATABASE READER/WRITER : ${URL_BD_RIS}       JavaScript : $(&apos;URL_BD_RIS&apos;)
+// DATABASE READER/WRITER : ${USER_BD_RIS}      JavaScript : $(&apos;USER_BD_RIS&apos;)
+// DATABASE READER/WRITER : ${PASS_BD_RIS}      JavaScript : $(&apos;PASS_BD_RIS&apos;)
+
+
+return;</string>
+  </entry>
+  <entry>
+    <string>Preprocessor</string>
+    <string>// Modify the message variable below to pre process data
+// This script applies across all channels
+return message;</string>
+  </entry>
+</map>

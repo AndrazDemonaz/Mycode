@@ -1,0 +1,256 @@
+<map>
+  <entry>
+    <string>Shutdown</string>
+    <string>// This script executes once when all channels shut down from a redeploy
+// You only have access to the globalMap here to persist data
+return;</string>
+  </entry>
+  <entry>
+    <string>Postprocessor</string>
+    <string>// This script executes once after a message has been processed
+// This script applies across all channels
+// Responses returned from here will be stored as &quot;Postprocessor&quot; in the response map
+// You have access to &quot;response&quot;, if returned from the channel postprocessor
+return;</string>
+  </entry>
+  <entry>
+    <string>Deploy</string>
+    <string>// This script executes once when all channels start up from a redeploy
+// You only have access to the globalMap here to persist data
+
+globalMap.put(&quot;Driver_Oracle&quot;,&quot;oracle.jdbc.OracleDriver&quot;);
+//globalMap.put(&quot;INTERFACE_TEAM&quot;,&quot;legados@clinicalascondes.cl&quot;);
+globalMap.put(&quot;INTERFACE_TEAM&quot;,&quot;aalarconb@clc.cl,jllano@clc.cl,mlobosm@clc.cl,legados@clinicalascondes.cl&quot;);
+//globalMap.put(&quot;INTERFACE_TEAM&quot;,&quot;aalarconb@clc.cl,jpavez@clc.cl,csaavedra@clc.cl,jllano@clc.cl,mlobosm@clc.cl,legados@clinicalascondes.cl&quot;);
+globalMap.put(&quot;MAIL_MADOC&quot;,&quot;Madoc1@clc.cl,Madoc2@clc.cl,Madoc3@clc.cl,Madoc4@clc.cl,Madoc7@clc.cl,vchacon@clc.cl&quot;);
+// DES
+//globalMap.put(&quot;URL_BD&quot;,&quot;jdbc:oracle:thin:@128.1.21.192:1630:hisd&quot;); 
+//globalMap.put(&quot;USER_HL7ENGINE&quot;, &quot;hl7engine&quot;);
+//globalMap.put(&quot;PASS_HL7ENGINE&quot;, &quot;hl7engine&quot;);
+
+// TST
+//globalMap.put(&quot;AMBIENTE&quot;,&quot;TST&quot;);
+//globalMap.put(&quot;URL_BD&quot;,&quot;jdbc:oracle:thin:@128.1.21.192:1610:hist&quot;); 
+//globalMap.put(&quot;USER_HL7ENGINE&quot;, &quot;usrhl7engine&quot;);
+//globalMap.put(&quot;PASS_HL7ENGINE&quot;, &quot;usrhl7hist&quot;);
+//globalMap.put(&quot;URL_BD_MIRTH&quot;,&quot;jdbc:postgresql://localhost:5432/mirthdb&quot;); 
+//globalMap.put(&quot;USER_BD_MIRTH&quot;, &quot;mirthclc&quot;);
+//globalMap.put(&quot;PASS_BD_MIRTH&quot;, &quot;admin&quot;);
+//globalMap.put(&quot;URL_BD_CERNER&quot;,&quot;jdbc:oracle:thin:@10.153.200.92:1521:cert1&quot;); 
+//globalMap.put(&quot;URL_BD_RIS&quot;,&quot;jdbc:oracle:thin:@128.1.21.117:1521:kodakris&quot;);
+//globalMap.put(&quot;USER_BD_RIS&quot;, &quot;prod20&quot;);
+//globalMap.put(&quot;PASS_BD_RIS&quot;, &quot;ris&quot;);
+//globalMap.put(&quot;WS_HM_SONDA&quot;, &quot;http://128.1.21.140:8080/sisaludws/wsdl&quot;);
+//globalMap.put(&quot;USER_AGENDA&quot;,&quot;admagenda&quot;);
+//globalMap.put(&quot;PASS_AGENDA&quot;,&quot;agetst&quot;);
+//globalMap.put(&quot;IP_MIRTH&quot;,&quot;128.1.21.76&quot;);
+//globalMap.put(&quot;IP_CERNER&quot;,&quot;10.153.200.92&quot;);
+//globalMap.put(&quot;WS_PREVICANCER&quot;,&quot;http://vmintraweb/tst/intranet/aplicaciones/ws/ws_previcancer&quot;);
+//globalMap.put(&quot;IP_TAKYON&quot;,&quot;172.4.253.91&quot;);
+//globalMap.put(&quot;USER_BD_TAKYON&quot;,&quot;TAKYONUSER&quot;);
+//globalMap.put(&quot;PASS_BD_TAKYON&quot;,&quot;junio2010&quot;);
+//globalMap.put(&quot;IP_RIS&quot;,&quot;128.1.21.14&quot;);
+//globalMap.put(&quot;WS_PREGO&quot;,&quot;http://www.pregost.cl/WS_CLC_PREGO_TEST&quot;);
+//globalMap.put(&quot;USER_PREGO&quot;, &quot;Prueba&quot;);
+//globalMap.put(&quot;PASS_PREGO&quot;, &quot;Prueba&quot;);
+//globalMap.put(&quot;USER_DB_PREGO&quot;,&quot;USR_PREGO&quot;);			
+//globalMap.put(&quot;PASS_DB_PREGO&quot;,&quot;USRPREGOHIST2012&quot;);	
+//globalMap.put(&quot;USER_DB_SDD&quot;,&quot;usrsdd&quot;);			// ${USER_DB_SDD}
+//globalMap.put(&quot;PASS_DB_SDD&quot;,&quot;usr10tstsdd&quot;);		// ${PASS_DB_SDD}
+//globalMap.put(&quot;URL_SDD&quot;,&quot;http://vmintraweb.dclc.cl/tst/intranet/aplicaciones/sdd/visor.aspx&quot;);
+//globalMap.put(&quot;FOLDER_POCMAR&quot;,&quot;/folders/network/pocmartst&quot;);
+//globalMap.put(&quot;URL_BD_HEMATOS&quot;,&quot;jdbc:oracle:thin:@(DESCRIPTION = (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(HOST = 128.1.21.192)(PORT = 1610)))(CONNECT_DATA = (SERVICE_NAME = HIST)))&quot;); 
+//globalMap.put(&quot;USER_HEMATOS&quot;, &quot;hematos&quot;);
+//globalMap.put(&quot;PASS_HEMATOS&quot;, &quot;histhema_0701&quot;);
+//globalMap.put(&quot;PASS_LIS&quot;,&quot;orden7&quot;);
+//globalMap.put(&quot;URL_BD_CLOUD_SONDA&quot;,&quot;jdbc:oracle:thin:@128.1.21.192:1610:hist&quot;);
+
+// PROD
+globalMap.put(&quot;AMBIENTE&quot;,&quot;PROD&quot;);
+// ANTIGUO STRING DE CONEXION // globalMap.put(&quot;URL_BD&quot;,&quot;jdbc:oracle:thin:@(DESCRIPTION = (LOAD_BALANCE=on) (FAILOVER=on) (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(HOST = 128.1.21.171)(PORT = 1521))(ADDRESS = (PROTOCOL = TCP)(HOST = 128.1.21.192)(PORT = 1521))) (CONNECT_DATA= (SERVICE_NAME = HISP)))&quot;);//SOLO NODO 1
+//globalMap.put(&quot;URL_BD&quot;,&quot;jdbc:oracle:thin:@(DESCRIPTION = (enable=broken) (LOAD_BALANCE = TRUE) (ADDRESS = (PROTOCOL = TCP)(HOST = 10.153.200.65)(PORT = 1521)) (ADDRESS = (PROTOCOL = TCP)(HOST = 10.153.200.66)(PORT = 1521)) (CONNECT_DATA = (SERVICE_NAME = HISP) (SERVER = DEDICATED) ) )&quot;);
+//globalMap.put(&quot;URL_BD&quot;,&quot;jdbc:oracle:thin:@(DESCRIPTION = (enable=broken) (LOAD_BALANCE = TRUE) (ADDRESS = (PROTOCOL = TCP)(HOST = 10.153.200.66)(PORT = 1521)) (CONNECT_DATA = (SERVICE_NAME = HISP) (SERVER = DEDICATED) ) )&quot;); //sin nodo 1 new
+//globalMap.put(&quot;URL_BD&quot;,&quot;jdbc:oracle:thin:@(DESCRIPTION = (enable=broken) (LOAD_BALANCE = TRUE) (ADDRESS = (PROTOCOL = TCP)(HOST = 10.153.200.65)(PORT = 1521)) (CONNECT_DATA = (SERVICE_NAME = HISP) (SERVER = DEDICATED) ) )&quot;); //sin nodo 2 new
+//globalMap.put(&quot;URL_BD&quot;,&quot;jdbc:oracle:thin:@(DESCRIPTION = (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(HOST = 10.153.200.68)(PORT = 1521))) (CONNECT_DATA = (SERVICE_NAME = HISP)))&quot;);  //STAND BY
+
+// HISP - cambio de maquinas HISP 27-05-2018 
+//globalMap.put(&quot;URL_BD&quot;,&quot;jdbc:oracle:thin:@(DESCRIPTION = (enable=broken) (ADDRESS = (PROTOCOL = TCP)(HOST = 10.153.200.22)(PORT = 1521)) (CONNECT_DATA = (SERVICE_NAME = HISP) (INSTANCE_NAME = HISP1) ) )&quot;); //apunta a nodo 1
+//globalMap.put(&quot;URL_BD&quot;,&quot;jdbc:oracle:thin:@(DESCRIPTION = (enable=broken) (ADDRESS = (PROTOCOL = TCP)(HOST = 10.153.200.23)(PORT = 1521)) (CONNECT_DATA = (SERVICE_NAME = HISP) (INSTANCE_NAME = HISP2) ) )&quot;); //apunta a nodo 2
+//globalMap.put(&quot;URL_BD&quot;,&quot;jdbc:oracle:thin:@(DESCRIPTION = (enable=broken) (LOAD_BALANCE = TRUE) (ADDRESS = (PROTOCOL = TCP)(HOST = 10.153.200.22)(PORT = 1521)) (ADDRESS = (PROTOCOL = TCP)(HOST = 10.153.200.23)(PORT = 1521)) (CONNECT_DATA = (SERVICE_NAME = HISP) (SERVER = DEDICATED) ) )&quot;);
+//A partir del 22/05/2022 se cambia a Entel virtualizada
+globalMap.put(&quot;URL_BD&quot;,&quot;jdbc:oracle:thin:@(DESCRIPTION = (enable=broken) (LOAD_BALANCE = TRUE) (ADDRESS = (PROTOCOL = TCP)(HOST = 10.153.200.240)(PORT = 1521)) (ADDRESS = (PROTOCOL = TCP)(HOST = 10.153.200.176)(PORT = 1521)) (CONNECT_DATA = (SERVICE_NAME = HISP) (SERVER = DEDICATED) ) )&quot;);
+
+//CERNER DB
+//globalMap.put(&quot;URL_BD_CERNER&quot;,&quot;jdbc:oracle:thin:@(DESCRIPTION=(ENABLE=BROKEN)(ADDRESS = (PROTOCOL = TCP)(HOST = 149.45.134.205)(PORT = 1521))(CONNECT_DATA=(SERVER = DEDICATED)(SERVICE_NAME= p1989.world)))&quot;);
+globalMap.put(&quot;URL_BD_CERNER&quot;,&quot;jdbc:oracle:thin:@(DESCRIPTION=(ENABLE=BROKEN)(ADDRESS = (PROTOCOL = TCP)(HOST = 149.45.134.205)(PORT = 1521))(CONNECT_DATA=(SERVER = DEDICATED)(SERVICE_NAME= sp1989.world)))&quot;);
+
+globalMap.put(&quot;URL_BD_SAP&quot;,&quot;jdbc:oracle:thin:@10.153.200.36:1620:HISC&quot;); 
+globalMap.put(&quot;USER_HL7ENGINE&quot;, &quot;usrhl7engine&quot;);
+globalMap.put(&quot;PASS_HL7ENGINE&quot;, &quot;userhl7hisp&quot;);
+globalMap.put(&quot;USER_POCT&quot;, &quot;USREXPPOCT&quot;);
+globalMap.put(&quot;PASS_POCT&quot;, &quot;usrpocthisprd&quot;);
+globalMap.put(&quot;URL_BD_MIRTH&quot;,&quot;jdbc:postgresql://localhost:5432/mirthdb&quot;); 
+globalMap.put(&quot;USER_BD_MIRTH&quot;, &quot;mirthclc&quot;);
+globalMap.put(&quot;PASS_BD_MIRTH&quot;, &quot;mirthclc&quot;);
+globalMap.put(&quot;USER_CERNER&quot;,&quot;v500_read&quot;);
+globalMap.put(&quot;PASS_CERNER&quot;,&quot;V500_read&quot;);
+globalMap.put(&quot;URL_BD_RIS&quot;,&quot;jdbc:oracle:thin:@128.1.21.151:1521:kodakris&quot;);
+globalMap.put(&quot;USER_BD_RIS&quot;, &quot;prod10&quot;);
+globalMap.put(&quot;PASS_BD_RIS&quot;, &quot;ris&quot;);
+//ANTIGU RIS
+//globalMap.put(&quot;URL_BD_RIS_2015&quot;,&quot;jdbc:oracle:thin:@(DESCRIPTION = (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(Host = 172.31.100.22)(Port=1521))) (CONNECT_DATA= (SID=cshris)))&quot;);
+//NUEVO RIS JLLANO
+globalMap.put(&quot;URL_BD_RIS_2015&quot;,&quot;jdbc:oracle:thin:@(DESCRIPTION = (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(Host = 172.31.100.71)(Port=1521))) (CONNECT_DATA= (SID=cshris)))&quot;);
+//globalMap.put(&quot;URL_BD_RIS_2015&quot;,&quot;jdbc:oracle:thin:@(DESCRIPTION = (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(Host = 172.31.100.24)(Port=1521))) (CONNECT_DATA= (SID=cshris)))&quot;);
+globalMap.put(&quot;USER_BD_RIS_2015&quot;, &quot;CSHRIS&quot;);
+globalMap.put(&quot;PASS_BD_RIS_2015&quot;, &quot;ris&quot;);
+globalMap.put(&quot;WS_HM_SONDA&quot;, &quot;http://128.1.21.143:8080/sisaludws/wsdl&quot;);
+globalMap.put(&quot;USER_AGENDA&quot;,&quot;admagenda&quot;);
+globalMap.put(&quot;PASS_AGENDA&quot;,&quot;admage06&quot;);
+globalMap.put(&quot;IP_MIRTH&quot;,&quot;10.153.200.30&quot;);
+globalMap.put(&quot;IP_MIRTH_SAP&quot;,&quot;10.153.200.196&quot;);
+//globalMap.put(&quot;IP_CERNER&quot;,&quot;10.153.200.86&quot;);
+globalMap.put(&quot;IP_CERNER&quot;,&quot;149.45.134.202&quot;);
+globalMap.put(&quot;WS_PREVICANCER&quot;,&quot;http://vmintranet/aplicaciones/ws/ws_previcancer&quot;);
+globalMap.put(&quot;IP_TAKYON&quot;,&quot;128.1.21.121&quot;);
+globalMap.put(&quot;USER_BD_TAKYON&quot;,&quot;TAKYONUSER&quot;);
+globalMap.put(&quot;PASS_BD_TAKYON&quot;,&quot;iuyrjd089dhf74&quot;);
+//globalMap.put(&quot;IP_RIS&quot;,&quot;128.1.21.14&quot;);
+globalMap.put(&quot;IP_RIS&quot;,&quot;128.1.21.117&quot;);
+//ANTIGUI RIS
+//globalMap.put(&quot;IP_RIS_2015&quot;,&quot;172.31.100.21&quot;);
+//NUEVO RIS JLLANO
+globalMap.put(&quot;IP_RIS_2015&quot;,&quot;172.31.100.81&quot;);
+globalMap.put(&quot;RIS_WAIT_PATH&quot;,&quot;/folders/sftp_users/logs_mirth/files/processed/RIS_WAIT_PATH/&quot;);
+globalMap.put(&quot;WS_PREGO&quot;,&quot;http://www.pregost.cl/ws_prego_clc&quot;);
+globalMap.put(&quot;USER_PREGO&quot;, &quot;Ws_clc&quot;);
+globalMap.put(&quot;PASS_PREGO&quot;, &quot;Ws_clc&quot;);
+globalMap.put(&quot;USER_DB_PREGO&quot;,&quot;USR_PREGO&quot;);
+globalMap.put(&quot;PASS_DB_PREGO&quot;,&quot;pregousrclinica2013&quot;);
+globalMap.put(&quot;CALLCENTER_EMPRESA&quot;,&quot;Clinica Las Condes&quot;);
+globalMap.put(&quot;CALLCENTER_USER&quot;,&quot;Informatica_CLC&quot;);
+globalMap.put(&quot;CALLCENTER_PW&quot;,&quot;CLC.2014&quot;);
+globalMap.put(&quot;ENIAX_USER&quot;,&quot;PAULA_CLC&quot;);
+globalMap.put(&quot;ENIAX_PW&quot;,&quot;$dfrT5g6.QsmH&quot;);
+globalMap.put(&quot;USER_DB_SDD&quot;,&quot;usrsdd&quot;);
+globalMap.put(&quot;PASS_DB_SDD&quot;,&quot;usrsddhisp&quot;);
+globalMap.put(&quot;URL_SDD&quot;,&quot;http://ws.intranetclc.cl/aplicaciones/sdd/visor.aspx&quot;);
+globalMap.put(&quot;FOLDER_POCMAR&quot;,&quot;/folders/network/pocmarprod1&quot;);
+// ANTIGUO STRING DE CONEXION // globalMap.put(&quot;URL_BD_HEMATOS&quot;,&quot;jdbc:oracle:thin:@(DESCRIPTION = (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(HOST = 128.1.21.172)(PORT = 1521)) (ADDRESS = (PROTOCOL = TCP)(HOST = 128.1.21.173)(PORT = 1521))(ADDRESS = (PROTOCOL = TCP)(HOST = 128.1.21.171)(PORT = 1521)) (ADDRESS = (PROTOCOL = TCP)(HOST = 128.1.21.192)(PORT = 1521))) (CONNECT_DATA= (SERVICE_NAME = HISP)))&quot;); 
+globalMap.put(&quot;URL_BD_HEMATOS&quot;,&quot;jdbc:oracle:thin:@(DESCRIPTION = (enable=broken) (LOAD_BALANCE = TRUE) (ADDRESS = (PROTOCOL = TCP)(HOST = 10.153.200.65)(PORT = 1521)) (ADDRESS = (PROTOCOL = TCP)(HOST = 10.153.200.66)(PORT = 1521)) (CONNECT_DATA = (SERVICE_NAME = HISP) (SERVER = DEDICATED) ) )&quot;);
+globalMap.put(&quot;USER_HEMATOS&quot;, &quot;hematos&quot;);
+globalMap.put(&quot;PASS_HEMATOS&quot;, &quot;hematos07&quot;);
+globalMap.put(&quot;USER_LIS&quot;,&quot;clc_orden1&quot;);
+globalMap.put(&quot;PASS_LIS&quot;,&quot;orden1&quot;);
+globalMap.put(&quot;URL_BD_CLOUD_SONDA&quot;,&quot;jdbc:oracle:thin:@10.153.198.51:1521:orcl&quot;);
+globalMap.put(&quot;USER_RHSYSTEM&quot;, &quot;USR_RHS&quot;);
+globalMap.put(&quot;PASS_RHSYSTEM&quot;, &quot;hispusrrhs09&quot;);
+// ANTIGUO STRING DE CONEXION // globalMap.put(&quot;NODO1_HISPRD&quot;,&quot;128.1.21.171&quot;);
+globalMap.put(&quot;NODO1_HISPRD&quot;,&quot;10.153.200.65&quot;);
+globalMap.put(&quot;NODO2_HISPRD&quot;,&quot;10.153.200.66&quot;);
+// ANTIGUO STRING DE CONEXION // globalMap.put(&quot;URL_DB_HISC&quot;,&quot;jdbc:oracle:thin:@128.1.21.192:1620:hisc&quot;);
+globalMap.put(&quot;URL_DB_HISC&quot;,&quot;jdbc:oracle:thin:@(DESCRIPTION = (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(HOST = 10.153.200.49)(PORT = 1620)) ) (CONNECT_DATA = (SERVICE_NAME = HISC) ) (SERVER = DEDICATED) )&quot;);
+globalMap.put(&quot;INTERFACE_PSC&quot;,&quot;psepulveda@clc.cl,vchacon@clc.cl&quot;);
+globalMap.put(&quot;USER_SICARE&quot;, &quot;USREXPSICAPP&quot;);
+globalMap.put(&quot;PASS_SICARE&quot;, &quot;usrexplotsicare2014&quot;);
+globalMap.put(&quot;USER_GRD&quot;, &quot;itrgrd&quot;);
+globalMap.put(&quot;PASS_GRD&quot;, &quot;grdsystem2012&quot;);
+
+globalMap.put(&quot;USER_ENCUESTA&quot;,&quot;ENCUESTACLC&quot;);
+globalMap.put(&quot;PASS_ENCUESTA&quot;,&quot;clc_2015&quot;);
+globalMap.put(&quot;USER_AGENDA_CON&quot;,&quot;admagenda&quot;);
+globalMap.put(&quot;PASS_AGENDA_CON&quot;,&quot;admage06&quot;);
+
+//worklist neurofisiologia --PSC 04-03-2015
+globalMap.put(&quot;USER_WORKLIST&quot;,&quot;USREXPCADAPP&quot;);
+globalMap.put(&quot;PASS_WORKLIST&quot;,&quot;usrexplotcadw2014&quot;);
+
+
+//globalMap.put(&quot;LOG_PATH&quot;,&quot;/folders/sftp_users&quot;);
+globalMap.put(&quot;LOG_PARTH&quot;,&quot;D:/folders/sftp_users&quot;);
+
+globalMap.put(&quot;USER_MB&quot;,&quot;USRMAILMB&quot;);
+globalMap.put(&quot;PASS_MB&quot;,&quot;usrmail_15mb&quot;);
+
+globalMap.put(&quot;USR_CLC_WEB&quot;,&quot;USRCLCWEB&quot;);
+globalMap.put(&quot;PASS_CLC_WEB&quot;,&quot;usrclcwebhis2012&quot;);
+
+globalMap.put(&quot;USR_WEB&quot;,&quot;USRAGEWEB&quot;);
+globalMap.put(&quot;PASS_WEB&quot;,&quot;hispageweb08&quot;);
+
+//globalMap.put(&quot;URL_BD_ANH&quot;,&quot;jdbc:oracle:thin:@10.153.200.67:1521:ANHP&quot;);
+//globalMap.put(&quot;URL_BD_ANH&quot;,&quot;jdbc:oracle:thin:@10.153.200.168:1521:ANHP&quot;);
+//A partir del 19/05/2022 se cambia a Entel virtualizada
+globalMap.put(&quot;URL_BD_ANH&quot;,&quot;jdbc:oracle:thin:@10.153.200.160:1521:ANHP&quot;); 
+
+globalMap.put(&quot;USR_LISTPLUS&quot;,&quot;USRLISTPLUS&quot;);
+globalMap.put(&quot;PASS_LISTPLUS&quot;,&quot;USRLISTPLUSHISPRD&quot;);
+
+globalMap.put(&quot;User_I2B&quot;,&quot;clc-info&quot;);
+globalMap.put(&quot;Pass_I2B&quot;,&quot;ajAkH43KmH&quot;);
+
+//Facturacion electronica PPL
+
+globalMap.put(&quot;USER_BD_PPL&quot;, &quot;usrphm&quot;);
+globalMap.put(&quot;PASS_BD_PPL&quot;, &quot;usrphmhisprd2013&quot;);
+globalMap.put(&quot;USER_WS_PPL&quot;, &quot;PUSUARIOG&quot;);
+globalMap.put(&quot;PASS_WS_PPL&quot;, &quot;abc123&quot;);
+
+globalMap.put(&quot;DRIVER_SQLSERVER&quot;,&quot;net.sourceforge.jtds.jdbc.Driver&quot;);//ECP 20160620
+globalMap.put(&quot;URL_BD_NOVOPATH&quot;,&quot;jdbc:jtds:sqlserver://128.1.21.184:1433/NPDAT_13_clc&quot;);//ECP 20160620
+globalMap.put(&quot;USER_NOVOPATH&quot;,&quot;sa&quot;);//ECP 20160620
+globalMap.put(&quot;PASS_NOVOPATH&quot;,&quot;doce12qe&quot;);//ECP 20160620
+
+//PSC 18082016 - Elearning.
+globalMap.put(&quot;USER_ANH_E&quot;,&quot;M4MIRTH1&quot;);
+globalMap.put(&quot;PASS_ANH_E&quot;,&quot;intrfmirth2016&quot;);
+
+//PSC 18102016 - Desayunos-Aramark
+globalMap.put(&quot;IP_ARAMARK_WS&quot;,&quot;172.30.2.232&quot;);
+globalMap.put(&quot;USER_TAW&quot;,&quot;TAWINTERFAZ&quot;);
+globalMap.put(&quot;PASS_TAW&quot;,&quot;clinic2016&quot;);
+
+//CONEXION DB TAG PSC 13-03-2016
+globalMap.put(&quot;USER_TAG&quot;, &quot;REGESTTAG&quot;);
+globalMap.put(&quot;PASS_TAG&quot;, &quot;EST2016&quot;);
+//Conexion sftp TAG PSC 13-03-2016
+globalMap.put(&quot;U_TAG&quot;, &quot;interfaces&quot;);
+globalMap.put(&quot;P_TAG&quot;, &quot;acsa2013&quot;);
+
+globalMap.put(&quot;USERSEG&quot;,&quot;USUSEGURO&quot;);
+globalMap.put(&quot;PASSSEG&quot;,&quot;seguroprod&quot;);
+
+globalMap.put(&quot;BASE_FIREBIRD_TAKYON&quot;,&quot;jdbc:firebirdsql:128.1.21.121/3050:D:/TakyoN/TakyoN Cap 2006 Server/Bases/TAKYONDBPROD.GDB&quot;);
+
+//Variables de WS_CLC_RFLEX:
+//globalMap.put(&quot;USER_ANH_E&quot;,&quot;M4MIRTH1&quot;);
+//globalMap.put(&quot;PASS_ANH_E&quot;,&quot;intrfmirth2016&quot;);
+globalMap.put(&quot;USER_RFLEX&quot;,&quot;usuarioCLCws&quot;);
+globalMap.put(&quot;PASS_RFLEX&quot;,&quot;cLTkh21SpC6r5A#&quot;);
+
+globalMap.put(&quot;URL_DB_GESTPATH&quot;,&apos;jdbc:mysql://10.153.200.135:3306/GESTPATH&apos;);
+
+globalMap.put(&quot;USER_LIQVM&quot;, &quot;INTF_SINIESTROS&quot;);
+globalMap.put(&quot;PASS_LIQVM&quot;, &quot;sinprod&quot;);
+
+
+globalMap.put(&quot;BASE_URL_CGS&quot;,&quot;http://172.28.1.72&quot;);
+//globalMap.put(&quot;BASE_URL_CGS&quot;,&quot;https://172.28.1.5&quot;);
+// Se cambia el 23/05/2022 a pedido de Victor Chamorro/Marco Lobos
+//globalMap.put(&quot;BASE_URL_CGS&quot;,&quot;https://cgs-aplicaciones.cgsinc.cl&quot;);
+
+
+
+//SERVICIO WEB SSTSSH
+globalMap.put(&quot;WS_SST&quot;,&quot;http://172.25.18.16:8080&quot;);
+
+
+return;</string>
+  </entry>
+  <entry>
+    <string>Preprocessor</string>
+    <string>// Modify the message variable below to pre process data
+// This script applies across all channels
+return message;</string>
+  </entry>
+</map>

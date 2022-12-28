@@ -1,0 +1,69 @@
+// This script executes once when all channels start up from a redeploy
+// You only have access to the globalMap here to persist data
+
+globalMap.put("Driver_Oracle","oracle.jdbc.OracleDriver");
+globalMap.put("INTERFACE_TEAM","Monitoreo_TI_CLC@clinicalascondes.cl,aalarconb@clc.cl,mlobosm@clc.cl,legados@clinicalascondes.cl");
+
+// PROD
+globalMap.put("AMBIENTE","PROD");
+
+// BD HIS
+globalMap.put("URL_BD","jdbc:oracle:thin:@(DESCRIPTION = (enable=broken) (LOAD_BALANCE = TRUE) (ADDRESS = (PROTOCOL = TCP)(HOST = 10.153.200.76)(PORT = 1521)) (ADDRESS = (PROTOCOL = TCP)(HOST = 10.153.200.83)(PORT = 1521)) (CONNECT_DATA = (SERVICE_NAME = HISP) (SERVER = DEDICATED) ) )"); // AAB 2022-11-20
+globalMap.put("USER_HL7ENGINE", "usrhl7engine");
+globalMap.put("PASS_HL7ENGINE", "userhl7hisp");
+globalMap.put("USER_AGENDA","admagenda");
+globalMap.put("PASS_AGENDA","admage06");
+globalMap.put("USER_BD_TAKYON","TAKYONUSER");
+globalMap.put("PASS_BD_TAKYON","iuyrjd089dhf74");
+globalMap.put("USER_DB_PREGO","USR_PREGO");
+globalMap.put("PASS_DB_PREGO","pregousrclinica2013");
+globalMap.put("USER_MB","USRMAILMB");
+globalMap.put("PASS_MB","usrmail_15mb");
+globalMap.put("USER_LIQVM", "INTF_SINIESTROS");
+globalMap.put("PASS_LIQVM", "sinprod");
+
+// BD CERNER
+globalMap.put("URL_BD_CERNER","jdbc:oracle:thin:@(DESCRIPTION=(ENABLE=BROKEN)(ADDRESS = (PROTOCOL = TCP)(HOST = 149.45.134.205)(PORT = 1521))(CONNECT_DATA=(SERVER = DEDICATED)(SERVICE_NAME= sp1989.world)))");
+globalMap.put("USER_CERNER","v500_read");
+globalMap.put("PASS_CERNER","V500_read");
+
+// BD MIRTH LOCAL
+globalMap.put("URL_BD_MIRTH","jdbc:postgresql://localhost:5432/mirthdb"); 
+globalMap.put("USER_BD_MIRTH", "mirthclc");
+globalMap.put("PASS_BD_MIRTH", "mirthclc");
+
+// BD RIS
+globalMap.put("URL_BD_RIS_2015","jdbc:oracle:thin:@(DESCRIPTION = (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(Host = 172.31.100.71)(Port=1521))) (CONNECT_DATA= (SID=cshris)))");
+globalMap.put("USER_BD_RIS_2015", "CSHRIS");
+globalMap.put("PASS_BD_RIS_2015", "ris");
+
+// BD META4
+globalMap.put("URL_BD_ANH","jdbc:oracle:thin:@10.153.200.109:1521:ANHP");
+globalMap.put("USER_ANH_E","M4MIRTH1");
+globalMap.put("PASS_ANH_E","intrfmirth2016");
+
+// BD TAKYON 
+globalMap.put("BASE_FIREBIRD_TAKYON","jdbc:firebirdsql:128.1.21.121/3050:D:/TakyoN/TakyoN Cap 2006 Server/Bases/TAKYONDBPROD.GDB");
+
+// IP MIRTH ERP1
+globalMap.put("IP_MIRTH_SAP","10.153.200.196");
+
+// IP OPENVIEW
+globalMap.put("IP_CERNER","149.45.134.202");
+
+// IP RIS
+globalMap.put("IP_RIS_2015","172.31.100.81");
+
+// VARIABLES ENIAX
+globalMap.put("ENIAX_USER","PAULA_CLC");
+globalMap.put("ENIAX_PW","$dfrT5g6.QsmH");
+
+// VARIABLES WS_CLC_RFLEX:
+globalMap.put("USER_RFLEX","usuarioCLCws");
+globalMap.put("PASS_RFLEX","cLTkh21SpC6r5A#");
+
+// REVISAR Y ELIMINAR
+globalMap.put("INTERFACE_PSC","psepulveda@clc.cl,vchacon@clc.cl");
+globalMap.put("MAIL_MADOC","Madoc1@clc.cl,Madoc2@clc.cl,Madoc3@clc.cl,Madoc4@clc.cl,Madoc7@clc.cl,vchacon@clc.cl");
+
+return;
