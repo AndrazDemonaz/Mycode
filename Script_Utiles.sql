@@ -59,3 +59,23 @@ SELECT AM.CAM_EPISODIO_SAP FROM AGE_CITAS_AGENDAS_MEDICAS AM WHERE AM.CAM_ID = 2
 c) Si es pagada por caja TyC el contador es mayor a 0.
 SELECT COUNT(*) FROM CARGOS_CAB C, CARGOS_DET D WHERE C.CAM_ID = 28814185 AND C.CARGO_CORREL = D.CARGO_CORREL AND D.E_REGISTRO_COD_CAN = '9' AND C.E_REGISTRO_COD = '1' AND D.E_REGISTRO_COD = '1';
 
+select distinct vs.sql_text, vs.sharable_mem,
+vs.persistent_mem, vs.runtime_mem, vs.sorts,
+vs.executions, vs.parse_calls, vs.module,
+vs.buffer_gets, vs.disk_reads, vs.version_count,
+vs.users_opening, vs.loads,
+to_char(to_date(vs.first_load_time,
+'YYYY-MM-DD/HH24:MI:SS'),'MM/DD HH24:MI:SS') first_load_time,
+rawtohex(vs.address) address, vs.hash_value hash_value ,
+rows_processed , vs.command_type, vs.parsing_user_id ,
+OPTIMIZER_MODE , au.USERNAME parseuser
+from v$sqlarea vs , all_users au
+--where (parsing_user_id != 0) AND (au.user_id(+)=vs.parsing_user_id)
+--where au.user_id = 8944
+where au.username = 'FBERRIOSC' 
+and (executions >= 1) 
+--order by buffer_gets/executions desc;
+--order BY vs.last_active_time desc;
+AND to_char(to_date(first_load_time,
+'YYYY-MM-DD/HH24:MI:SS'),'DD/MM/YY')= '13/01/23'
+ORDER BY 14 DESC;

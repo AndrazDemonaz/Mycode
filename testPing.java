@@ -11,16 +11,16 @@ class testPing
     InetAddress geek = InetAddress.getByName(ipAddress);
     System.out.println("Enviando el ping a ... " + ipAddress);
     if (geek.isReachable(5000))
-      System.out.println("El Host es alcansable");
+      System.out.println("El Host es alcanzable");
     else
-      System.out.println("Sorry ! estamos en problemas, el Host no es alcansable");
+      System.out.println("Sorry ! estamos en problemas, el Host no es alcanzable");
   }
   
   // Salida del resultado
   public static void main(String[] args)
           throws UnknownHostException, IOException
   {
-    String ipAddress = "172.30.254.1";
+    String ipAddress = "10.153.200.130";
     System.out.println("1- Nucleo de la red TI");
     sendPingRequest(ipAddress);
 
