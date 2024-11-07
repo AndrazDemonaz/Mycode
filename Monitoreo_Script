@@ -1,0 +1,4 @@
+select r.username,r.INST_ID,r.MACHINE, r.PROGRAM,r.MODULE,b.sql_text,r.sid,r.serial#,b.sql_id,b.child_number from
+ gv$session r, gv$sql b
+where r.sql_address=b.address
+and b.sql_text like '%update%';
