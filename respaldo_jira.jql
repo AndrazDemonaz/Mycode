@@ -1,0 +1,1 @@
+project = "10267" AND due < now() AND resolution = Unresolved AND issuetype in (standardIssueTypes(), Propuestas) AND status in (Evaluación, "In Progress", "Por Aprobar", "Propuesta Enviada", "To do")
